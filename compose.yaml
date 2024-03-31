@@ -1,0 +1,30 @@
+services:
+  ts_openapi_template:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: dev
+    container_name: ts_openapi_template
+    hostname: ts_openapi_template
+    shm_size: '4gb'
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/workspace:cached
+    environment:
+      GIT_AUTHOR_NAME: ${GIT_USERNAME}
+      GIT_COMMITTER_NAME: ${GIT_USERNAME}
+      GIT_AUTHOR_EMAIL: ${GIT_EMAIL_ADDRESS}
+      GIT_COMMITTER_EMAIL: ${GIT_EMAIL_ADDRESS}
+      TZ: Asia/Tokyo
+    tty: true
+
+  ts_openapi_mock:
+    image: stoplight/prism
+    container_name: ts_openapi_mock
+    hostname: ts_openapi_mock
+    ports:
+      - 4010:4010
+    volumes:
+      - ./app/src/openapi/:/openapi/:ro
+    command: "mock -h 0.0.0.0 /openapi/root.yaml"

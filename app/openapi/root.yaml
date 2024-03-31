@@ -1,0 +1,45 @@
+openapi: "3.0.3"
+
+info:
+  title: "Sample API"
+  version: "1.0.0"
+
+paths:
+  "/api/v1/hello":
+    get:
+      summary: "hello"
+      "operationId": "hello"
+      responses:
+        "200":
+          description: "success"
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "hello"
+        "400":
+          description: "failure"
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "error"
+  "/api/v1/call":
+    get:
+      summary: "call"
+      "operationId": "call"
+      responses:
+        "200":
+          description: "success"
+          content:
+            application/json:
+              schema:
+                type: number
+                example: 1
+        "400":
+          description: "failure"
+          content:
+            application/json:
+              schema:
+                type: number
+                example: 0

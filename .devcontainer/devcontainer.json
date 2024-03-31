@@ -1,0 +1,15 @@
+{
+	"name": "ts_openapi_template",
+	"dockerComposeFile": "../compose.yaml",
+	"service": "ts_openapi_template",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"42crunch.vscode-openapi",
+				"formulahendry.code-runner",
+				"wallabyjs.quokka-vscode"
+			]
+		}
+	}
+}
