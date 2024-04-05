@@ -11,6 +11,7 @@ services:
       - 3000:3000
     volumes:
       - ./:/workspace:cached
+      - node_modules:/workspace/node_modules
     environment:
       GIT_AUTHOR_NAME: ${GIT_USERNAME}
       GIT_COMMITTER_NAME: ${GIT_USERNAME}
@@ -28,3 +29,6 @@ services:
     volumes:
       - ./app/src/openapi/:/openapi/:ro
     command: "mock -h 0.0.0.0 /openapi/root.yaml"
+
+volumes:
+  node_modules:
