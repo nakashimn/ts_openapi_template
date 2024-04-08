@@ -51,6 +51,7 @@ RUN npm install --save-dev jest ts-jest @types/jest typescript
 
 COPY ./app/src /app/src
 COPY ./app/assets /app/assets
+COPY ./app/openapi /app/openapi
 COPY ./app/test /app/test
 CMD ["npm", "test"]
 
@@ -71,4 +72,6 @@ COPY --from=builder /npm/node_modules /app/node_modules
 WORKDIR /app/
 COPY ./app/src /app/src
 COPY ./app/assets /app/assets
+COPY ./app/openapi /app/openapi
+COPY ./app/index.ts /app/index.ts
 CMD ["ts-node", "./index.ts"]
