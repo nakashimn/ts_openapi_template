@@ -47,10 +47,10 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 COPY --from=builder /usr/local/lib /usr/local/lib
 COPY --from=builder /npm/node_modules /app/node_modules
 
-RUN npm install --save-dev jest ts-jest @types/jest typescript
+RUN npm install -g jest ts-jest @types/jest
 
 COPY ./app/src /app/src
-COPY ./app/assets /app/assets
+COPY ./app/assets /app/assetss
 COPY ./app/openapi /app/openapi
 COPY ./app/test /app/test
 CMD ["npm", "test"]
